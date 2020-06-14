@@ -5,6 +5,13 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <title>JMW-|-小姐姐</title>
+<script type="text/javascript">
+   if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    //    window.location.href = "index.html";
+    }else{
+        window.location.href = "pc.html";
+    }
+</script>
 <style type="text/css">
 *{
     margin:0px; 
@@ -42,17 +49,17 @@ var _hmt = _hmt || [];
 })();
 </script>
 <body>
-    <section id="main" class="app">
-        <video id="player" src="./1.mp4" preload autoplay webkit-playsinline='true' playsinline='true' x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true'></video>
-    </section>
+    <div class="app">
+        <video id="player" src="demo.mp4" preload autoplay webkit-playsinline='true' playsinline='true' x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true' controlslist="nodownload" poster="bg.jpg"></video>
+    </div>
     
     <span style="position:absolute;top:5px;left:10px;color:#fff;font-size:10px;">右/上滑切换下一个</span>
     <span style="position:absolute;top:20px;left:10px;color:#fff;font-size:10px;">单击播放/暂停</span>
     <span style="position:absolute;top:35px;left:10px;color:#fff;font-size:10px;">双击进入全屏</span>
 
-    <section id="buttons" style="position:absolute;bottom:150px;right:10px;">
+    <div id="buttons" style="position:absolute;bottom:150px;right:10px;">
         <button id="bth" style="border-radius:20px;width:32px;height:32px;">循环</button>
-    </section>
+    </div>
 
     <span style="position:absolute;top:5px;right:5px;color:#fff;font-size:10px;">当前视频库:[<span style="color: #FF4040;">*****</span>]</span>
     <span style="position:absolute;top:25px;right:10px;color:#fff;font-size:10px;">URL-ID:[<span style="color: #4682B4;">*****</span>]</span>

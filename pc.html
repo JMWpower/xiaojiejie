@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>JMW-|-小姐姐</title>
+<script type="text/javascript">
+   if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        window.location.href = "index.html";
+    }else{
+    //    window.location.href = "pc.html";
+    }
+</script>
+<style type="text/css">
+*{
+    margin:0px; 
+    padding:0px;
+    touch-action: pan-y;
+    background-color: #161823;
+}
+
+.app{
+    width: 650px; 
+    height:640px; 
+    position: absolute; 
+    top:50px; 
+    right:0px; 
+    bottom: 0px; 
+    left:0px; 
+    overflow: hidden;
+    margin:0 auto;
+    background-color: #0E0F1A;
+}
+
+.bom{
+    position: absolute; 
+    top:710px; 
+    right:0px; 
+    bottom: 0px; 
+    left:0px; 
+    overflow: hidden;
+    margin:0 auto;
+}
+
+#player{
+    width: 348px;
+    height: 600px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    float:left;
+    z-index: 100;
+}
+
+.box{
+    width: 242px;
+    height: 600px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    background-color: #0E0F1A;
+    float:left;
+    font-size:10px;
+}
+
+.xhms {
+	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	box-shadow:inset 0px 1px 0px 0px #f5978e;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f) );
+	background:-moz-linear-gradient( center top, #f24537 5%, #c62d1f 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f');
+	background-color:#f24537;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-radius-topright:5px;
+	border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-bottom-left-radius:5px;
+text-indent:0;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:italic;
+height:30px;
+	line-height:30px;
+width:160px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:0px 1px 0px #810e05;
+}.xhms:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537) );
+	background:-moz-linear-gradient( center top, #c62d1f 5%, #f24537 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537');
+	background-color:#c62d1f;
+}.xhms:active {
+	position:relative;
+	top:1px;
+}
+
+.zdlb {
+	-moz-box-shadow:inset 0px 1px 0px 0px #a4e271;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #a4e271;
+	box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #89c403), color-stop(1, #77a809) );
+	background:-moz-linear-gradient( center top, #89c403 5%, #77a809 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#89c403', endColorstr='#77a809');
+	background-color:#89c403;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-radius-topright:5px;
+	border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-bottom-left-radius:5px;
+text-indent:0;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:italic;
+height:30px;
+	line-height:30px;
+width:160px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:0px 1px 0px #528009;
+}.zdlb:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77a809), color-stop(1, #89c403) );
+	background:-moz-linear-gradient( center top, #77a809 5%, #89c403 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809', endColorstr='#89c403');
+	background-color:#77a809;
+}.zdlb:active {
+	position:relative;
+	top:1px;
+}
+
+.pass {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-radius-topright:5px;
+	border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-bottom-left-radius:5px;
+text-indent:0;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:40px;
+	font-weight:bold;
+	font-style:italic;
+height:50px;
+	line-height:50px;
+width:190px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:0px 1px 0px #ffffff;
+}.pass:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}.pass:active {
+	position:relative;
+	top:1px;
+}
+</style>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?86194243b3d0dc98474adb8d6755d003";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<body>
+	<span style="position:absolute;top:15px;left:8vw;color:#fff;font-size:16px;">
+		<strong style="font-size:18px;">JMW-xiaojiejie</strong>   | 看见美好生活
+	</span>
+	<div class="app">
+		<div>
+		    <video id="player" src="demo.mp4" preload autoplay webkit-playsinline='true' playsinline='true' x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true' controlslist="nodownload" poster="bg.jpg"></video>
+		</div>
+		<div class="box">
+			<div style="padding-top:20px;padding-left:40px;background-color: #0E0F1A;">
+				<img src="logo.png" style="border-radius:20px;width:32px;height:32px;background-color: #fff;">
+			    <span style="color:#fff;padding-left:12px;">@Jmw`Power</span>
+			</div>
+			<div style="padding-top:15px;padding-left:20px;padding-right:20px;background-color: #0E0F1A;">
+			    <span style="color:#fff;color: #999999;background-color: #0E0F1A;">本程序仅作研究学习演示，视频采集自网络;原作者拍摄创作不易，请勿下载传播!如您想要删除某个视频链接，请携带URL-ID联系我们</span>
+			</div>
+			<div style="padding-top: 20px;padding-left: 40px;padding-right:40px;background-color: #0E0F1A;text-align: center;font-size:14px;">
+				<span style="color:#fff;">视频库:[<span style="color: #FF4040;">*****</span>]</span><br><br>
+			    <span style="color:#fff;">URL-ID:[<span style="color: #4682B4;">*****</span>]</span>
+			</div>
+			<div style="padding-top: 30px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+				<span style="color:#fff;">点击按钮选择【连续】/【循环】模式</span><br>
+				<span style="color:#fff;">点击【PASS】按钮刷新播放下一个</span><br>
+			    <span style="color:#fff;">单击视频 播放/暂停</span><br>
+			    <span style="color:#fff;">双击视频进入 全屏播放</span><br>
+			</div>
+			<div style="padding-top: 20px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+				<button id="bth" class="xhms">单视频循环播放</button>
+			</div>
+			<div style="padding-top: 15px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+				<button class="pass" onclick="players();">PASS</button>
+			</div>
+		    <div style="padding-top: 20px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+		    	<span style="color:#fff;">扫描下方二维码.使用手机播放</span><br><br>
+				<img src="ewm.png" style="width:88px;height:88px;"><br><br>
+				<strong style="color:#fff;">http://xjj.jmwpower.top/</strong>
+			</div>
+		</div>
+	</div>
+	<div class="bom">
+		<div style="text-align: center;color:#fff;">
+			<strong>本程序仅作研究学习演示，视频采集自网络;原作者拍摄创作不易，请勿下载传播!如您想要删除某个视频链接，请携带URL-ID联系我们</strong>
+			<br><a href="#" style="color:#fff;">联系站长</a>
+		</div>
+	</div>
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    var auto = false;
+    var player = document.getElementById("player");
+ 
+    $("#bth").on("click", function(){
+        auto = !auto;
+        this.innerText = (auto ? '自动连续播放下一个' : '单视频循环播放');
+        this.className = (auto ? 'zdlb' : 'xhms');
+    });
+
+    player.addEventListener('ended', function () {
+        console.log("播放结束");
+        if (auto == false) {
+            player.play();
+        } else {
+            players();
+        }
+    }, false);
+
+    var touchtime = new Date().getTime();
+    $("#player").on("click", function(){
+        if( new Date().getTime() - touchtime < 500 ){
+            console.log("dblclick");
+            FullScreen();
+        }else{
+            touchtime = new Date().getTime();
+            console.log("click");
+            if (player.paused) {
+                player.play();
+            } else {
+                player.pause();
+            }
+        }
+    });
+});
+
+function players() {
+    $.get("get.php",function(data,status){
+        if (status==status) {
+            console.log("成功获取数据！");
+            player.src = data;
+            player.play();
+        } else {
+            console.log("失败，重新发起请求！");
+            players();
+        }
+    });
+}
+
+//进入全屏
+function FullScreen() {
+    if (player .requestFullscreen) {
+        player .requestFullscreen();
+        player.play();
+    } else if (player .mozRequestFullScreen) {
+        player .mozRequestFullScreen();
+        player.play();
+    } else if (player .webkitRequestFullScreen) {
+        player .webkitRequestFullScreen();
+        player.play();
+    }
+}
+</script>
+</script>
+</html>
