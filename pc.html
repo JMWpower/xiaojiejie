@@ -5,6 +5,7 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <title>JMW-|-小姐姐</title>
+<link rel="stylesheet" type="text/css" href="./css/pc.css">
 <script type="text/javascript">
    if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
         window.location.href = "index.html";
@@ -12,188 +13,6 @@
     //    window.location.href = "pc.html";
     }
 </script>
-<style type="text/css">
-*{
-    margin:0px; 
-    padding:0px;
-    touch-action: pan-y;
-    background-color: #161823;
-}
-
-.app{
-    width: 650px; 
-    height:640px; 
-    position: absolute; 
-    top:50px; 
-    right:0px; 
-    bottom: 0px; 
-    left:0px; 
-    overflow: hidden;
-    margin:0 auto;
-    background-color: #0E0F1A;
-}
-
-.bom{
-    position: absolute; 
-    top:730px; 
-    right:0px; 
-    bottom: 0px; 
-    left:0px; 
-    overflow: hidden;
-    margin:0 auto;
-    font-size:12px;
-}
-
-#player{
-    width: 348px;
-    height: 600px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    float:left;
-    z-index: 100;
-}
-
-.box{
-    width: 242px;
-    height: 600px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    background-color: #0E0F1A;
-    float:left;
-    font-size:12px;
-}
-
-.xhms {
-	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
-	box-shadow:inset 0px 1px 0px 0px #f5978e;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f) );
-	background:-moz-linear-gradient( center top, #f24537 5%, #c62d1f 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f');
-	background-color:#f24537;
-	-webkit-border-top-left-radius:5px;
-	-moz-border-radius-topleft:5px;
-	border-top-left-radius:5px;
-	-webkit-border-top-right-radius:5px;
-	-moz-border-radius-topright:5px;
-	border-top-right-radius:5px;
-	-webkit-border-bottom-right-radius:5px;
-	-moz-border-radius-bottomright:5px;
-	border-bottom-right-radius:5px;
-	-webkit-border-bottom-left-radius:5px;
-	-moz-border-radius-bottomleft:5px;
-	border-bottom-left-radius:5px;
-text-indent:0;
-	display:inline-block;
-	color:#ffffff;
-	font-family:arial;
-	font-size:15px;
-	font-weight:bold;
-	font-style:italic;
-height:30px;
-	line-height:30px;
-width:160px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:0px 1px 0px #810e05;
-}.xhms:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537) );
-	background:-moz-linear-gradient( center top, #c62d1f 5%, #f24537 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537');
-	background-color:#c62d1f;
-}.xhms:active {
-	position:relative;
-	top:1px;
-}
-
-.zdlb {
-	-moz-box-shadow:inset 0px 1px 0px 0px #a4e271;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #a4e271;
-	box-shadow:inset 0px 1px 0px 0px #a4e271;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #89c403), color-stop(1, #77a809) );
-	background:-moz-linear-gradient( center top, #89c403 5%, #77a809 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#89c403', endColorstr='#77a809');
-	background-color:#89c403;
-	-webkit-border-top-left-radius:5px;
-	-moz-border-radius-topleft:5px;
-	border-top-left-radius:5px;
-	-webkit-border-top-right-radius:5px;
-	-moz-border-radius-topright:5px;
-	border-top-right-radius:5px;
-	-webkit-border-bottom-right-radius:5px;
-	-moz-border-radius-bottomright:5px;
-	border-bottom-right-radius:5px;
-	-webkit-border-bottom-left-radius:5px;
-	-moz-border-radius-bottomleft:5px;
-	border-bottom-left-radius:5px;
-text-indent:0;
-	display:inline-block;
-	color:#ffffff;
-	font-family:arial;
-	font-size:15px;
-	font-weight:bold;
-	font-style:italic;
-height:30px;
-	line-height:30px;
-width:160px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:0px 1px 0px #528009;
-}.zdlb:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77a809), color-stop(1, #89c403) );
-	background:-moz-linear-gradient( center top, #77a809 5%, #89c403 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809', endColorstr='#89c403');
-	background-color:#77a809;
-}.zdlb:active {
-	position:relative;
-	top:1px;
-}
-
-.pass {
-	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
-	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
-	background-color:#ededed;
-	-webkit-border-top-left-radius:5px;
-	-moz-border-radius-topleft:5px;
-	border-top-left-radius:5px;
-	-webkit-border-top-right-radius:5px;
-	-moz-border-radius-topright:5px;
-	border-top-right-radius:5px;
-	-webkit-border-bottom-right-radius:5px;
-	-moz-border-radius-bottomright:5px;
-	border-bottom-right-radius:5px;
-	-webkit-border-bottom-left-radius:5px;
-	-moz-border-radius-bottomleft:5px;
-	border-bottom-left-radius:5px;
-text-indent:0;
-	display:inline-block;
-	color:#777777;
-	font-family:arial;
-	font-size:40px;
-	font-weight:bold;
-	font-style:italic;
-height:50px;
-	line-height:50px;
-width:190px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:0px 1px 0px #ffffff;
-}.pass:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
-	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
-	background-color:#dfdfdf;
-}.pass:active {
-	position:relative;
-	top:1px;
-}
-</style>
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -209,55 +28,126 @@ var _hmt = _hmt || [];
 	</span>
 	<div class="app">
 		<div>
-		    <video id="player" src="demo.mp4" preload autoplay webkit-playsinline='true' playsinline='true' x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true' controlslist="nodownload" poster="bg.jpg"></video>
+		    <video id="player" preload autoplay webkit-playsinline='true' playsinline='true' x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true' controlslist="nodownload" poster="./img/bg.jpg"></video>
 		</div>
 		<div class="box">
-			<div style="padding-top:20px;padding-left:40px;background-color: #0E0F1A;">
-				<img src="logo.png" style="border-radius:20px;width:32px;height:32px;background-color: #fff;">
-			    <a href="#" style="color:#fff;padding-left:12px;font-size:16px;text-decoration:none;">@Jmw`Power</a>
+			<div style="padding-top:10px;padding-left:40px;background-color: #0E0F1A;">
+				<img src="./img/logo.png" style="border-radius:20px;width:32px;height:32px;background-color: #fff;">
+			    <span style="color:#fff;padding-left:12px;font-size:16px;background-color: #0E0F1A;" id="userid">@Jmw`Power</span>
 			</div>
 			<div style="padding-top:15px;padding-left:20px;padding-right:20px;background-color: #0E0F1A;">
-			    <span style="color:#fff;color: #999999;background-color: #0E0F1A;">本程序仅作研究学习演示，视频采集自网络;原作者拍摄创作不易，请勿下载传播!如您想要删除某个视频链接，请携带URL-ID<a href="#" style="color:#999999;text-decoration:none;">@联系我们</a></span>
+			    <span style="color:#fff;color: #999999;background-color: #0E0F1A;">本程序仅作研究学习演示，视频采集自网络;原作者拍摄创作不易，请勿下载传播!</span>
 			</div>
-			<div style="padding-top: 20px;padding-left: 40px;padding-right:40px;background-color: #0E0F1A;text-align: center;font-size:14px;">
-				<span style="color:#fff;">视频库:[<span style="color: #FF4040;">*****</span>]</span><br><br>
-			    <span style="color:#fff;">URL-ID:[<span style="color: #4682B4;">*****</span>]</span>
+			<div style="padding-top: 15px;padding-left: 40px;padding-right:40px;background-color: #0E0F1A;text-align: center;font-size:14px;">
+				<span style="color: #FF4040;background-color: #0E0F1A;">点击来源切换数据源</span><br>
+			    <span style="color: #4682B4;background-color: #0E0F1A;">点击爱心按钮收藏</span>
 			</div>
-			<div style="padding-top: 30px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
-				<span style="color:#fff;">点击按钮选择【连续】/【循环】模式</span><br>
-				<span style="color:#fff;">点击【PASS】按钮刷新播放下一个</span><br>
-			    <span style="color:#fff;">单击视频 播放/暂停</span><br>
-			    <span style="color:#fff;">双击视频进入 全屏播放</span><br>
+			<div style="padding-top: 15px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+				<span style="color:#fff;background-color: #0E0F1A;">点击按钮选择【连续】/【循环】模式</span><br>
+				<span style="color:#fff;background-color: #0E0F1A;">点击【PASS】按钮刷新播放下一个</span><br>
+			    <span style="color:#fff;background-color: #0E0F1A;">单击视频 播放/暂停</span><br>
+			    <span style="color:#fff;background-color: #0E0F1A;">双击视频进入 全屏播放</span><br>
 			</div>
-			<div style="padding-top: 20px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+			<div style="padding-top: 15px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
 				<button id="bth" class="xhms">单视频循环播放</button>
 			</div>
 			<div style="padding-top: 15px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
 				<button class="pass" onclick="players();">PASS</button>
 			</div>
-		    <div style="padding-top: 20px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
-		    	<span style="color:#fff;">扫描下方二维码.使用手机播放</span><br><br>
-				<img src="ewm.png" style="width:88px;height:88px;"><br><br>
+			<div style="padding-top: 15px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+				<img src="./img/love.png" id="love" style="background-color: #0E0F1A;border-radius:10px;width:38px;height:38px;" title="点击喜欢按钮收藏">
+			</div>
+			<div style="padding-top: 15px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+				<button id="yuan">当前数据源【001】</button>
+			</div>
+		    <div style="padding-top: 15px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+		    	<span style="color:#fff;">扫描下方二维码.使用手机播放</span><br>
+				<img src="./img/ewm.png" style="width:88px;height:88px;"><br>
 				<strong style="color:#fff;">http://xjj.jmwpower.top/</strong>
 			</div>
 		</div>
 	</div>
 	<div class="bom">
 		<div style="text-align: center;color:#fff;">
-			<strong>本程序仅作研究学习演示，视频采集自网络;原作者拍摄创作不易，请勿下载传播!如您想要删除某个视频链接，请携带URL-ID联系我们</strong>
+			<strong>本程序仅作研究学习演示，数据采集自网络;原作者拍摄创作不易，请勿下载传播!</strong>
 		</div>
 	</div>
 </body>
-<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+<div class="login" id="dlym" style="height:320px;">
+    <div class="login-title">ID*组·收藏登入<span><a class="close-login">关闭</a></span></div>
+    <div class="login-input-content">
+        <div class="login-input">
+            <label>ID*组·账号：</label>
+            <input type="text" placeholder="ID*组·账号（建议使用易记的纯数字）"  id="username" class="list-input"/>
+        </div>
+        <strong>温馨提示：</strong>
+        <span>1.本收藏功能为开放性ID组账号收藏体验，ID*组·账号不设密码，如已存在同ID组账号，即会在原ID组账号上添加收藏数据，您可以公开您的ID组账号给您志同道合的好友们；添加的收藏数据暂不支持取消，不支持删除ID组账号，请您谨慎操作！</span>
+        <span>2.点击来源显示按钮切换到收藏源即可浏览当前ID组账号收藏的数据。</span>
+    </div>
+    <div class="login-button"><a id="login">登录账号</a></div>
+</div>
+<div class="login-bg"></div>
+<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="./js/jquery.cookie.min.js"></script>
 <script>
 $(document).ready(function(){
-    var auto = false;
-    var player = document.getElementById("player");
+    auto = false;
+    gi = 1;
+    url = "./get/get1.php";
+    vdurl = "./demo.mp4";
+    player = document.getElementById("player");
+    players();
  
     $("#bth").on("click", function(){
         auto = !auto;
         this.innerText = (auto ? '自动连续播放下一个' : '单视频循环播放');
         this.className = (auto ? 'zdlb' : 'xhms');
+    });
+
+    $("#love").on("click", function(){
+    	user = $.cookie('user');
+	    if (user == null) {
+	    	$('#dlym').show();
+	    	$('.login-bg').show();
+		} else {
+			$.post("post.php",{userid:user,datastr:vdurl},function(datat,status){
+				dataobj = JSON.parse(datat);
+				if (dataobj.status == "YES") {
+					$("#love").attr('src','./img/loves.png'); 
+					console.log(dataobj.message);
+				}else{
+					console.log(dataobj.message);
+				}
+			});
+		}
+    });
+
+    $('.close-login').click(function(){
+        $('#dlym').hide();
+        $('.login-bg').hide();
+    });
+
+    $("#yuan").on("click", function(){
+    	if (gi < 8) {
+    		gi = gi + 1;
+    		this.innerText = "当前数据源【00" + gi + "】";
+    		url = "./get/get" + gi + ".php";
+    	} else if (gi = 8) {
+			var user = $.cookie('user');
+			if (user != null) {
+				gi = 0;
+				$("#userid").html('@'+user);
+				this.innerText = "当前数据源【收藏】";
+				url = ("./get/get.php?user=" + user);
+			} else {
+				$("#userid").html('@Jmw-Power');
+				gi = 1;
+	    		this.innerText = "当前数据源【00" + gi + "】";
+	    		url = "./get/get" + gi + ".php";
+			}
+    	}
+        console.log(url);
     });
 
     player.addEventListener('ended', function () {
@@ -269,7 +159,7 @@ $(document).ready(function(){
         }
     }, false);
 
-    var touchtime = new Date().getTime();
+    touchtime = new Date().getTime();
     $("#player").on("click", function(){
         if( new Date().getTime() - touchtime < 500 ){
             console.log("dblclick");
@@ -287,11 +177,24 @@ $(document).ready(function(){
 });
 
 function players() {
-    $.get("get.php",function(data,status){
+    $.get(url,function(data,status){
         if (status==status) {
             console.log("成功获取数据！");
             player.src = data;
+            vdurl = data;
+            console.log(data);
             player.play();
+            if (gi==0) {
+            	$("#love").attr('src','./img/loves.png');
+            } else {
+            	$("#love").attr('src','./img/love.png');
+            }
+			$.ajax({url: data,type: 'GET',complete: function(response) {
+				if(response.status != 200) {
+					console.log(response.status);
+					players();
+				}
+			}});
         } else {
             console.log("失败，重新发起请求！");
             players();
@@ -312,6 +215,36 @@ function FullScreen() {
         player.play();
     }
 }
-</script>
+
+$(document).ready(function(){
+	var user = $.cookie('user');
+	if (user != null) {
+		$("#userid").html('@'+user);
+	} else {
+		$("#userid").html('@Jmw-Power');
+	}
+});
+
+$("#login").on("click", function(){
+	var usernames = document.getElementById('username').value;
+    if (usernames.replace(/(^\s*)|(\s*$)/g, "") == "") {  //----判断是否为空或者空格---
+        alert("请注意，账号内容不能为空！");
+        username.focus();
+        return;//------如果为空，阻止函数继续往下执行----
+    } else {
+	    $.post("login.php",{username:usernames},function(datalogin,status){
+	        	objlogin = JSON.parse(datalogin);
+	        	if (objlogin.status == "YES") {
+	        		$("#userid").html('@'+usernames);
+	        		$.cookie('user', usernames);
+	        		$('#dlym').hide();
+			        $('.login-bg').hide();
+			        alert(objlogin.message);
+	        	}else{
+	        		alert(objlogin.message);
+	        	} 
+	        });
+    }
+});
 </script>
 </html>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <title>JMW-|-小姐姐</title>
 <script type="text/javascript">
-   if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
     //    window.location.href = "index.html";
     }else{
         window.location.href = "pc.html";
@@ -38,6 +38,21 @@
     object-position: center center;
     z-index: 100;
 }
+
+/* login */
+.login-header{width:100%;text-align:center;height:30px;font-size:24px;line-height:30px;background-color:#ffffff;}
+.login{position:fixed;border:#ebebeb solid 1px;top:10%;left:5%;right:5%;display:none;background:#ffffff;box-shadow:0px 0px 20px #ddd;z-index:9999;}
+.login-title{width:100%;margin:10px 0px 0px 0px;text-align:center;line-height:40px;height:40px;font-size:18px;position:relative;background-color:#ffffff;}
+.login-title span{position:absolute;font-size:12px;right:-20px;top:-30px;border:#ebebeb solid 1px;width:40px;height:40px;border-radius:20px;background-color:#ffffff;}
+.login-title span a{display:block;border-radius:20px;font-size:16px;background-color:#ffffff;}
+.login strong{float:left;display:block;font-size:16px;background-color:#ffffff;}
+.login span{display:block;font-size:14px;background-color:#ffffff;text-align:left;}
+.login-input-content{margin-top:20px;background-color:#ffffff;}
+.login-input {overflow:hidden;margin:0px 0px 20px 0px;background-color:#ffffff;}
+.login-input label{float:left;width:100%;padding-right:10px;text-align:left;line-height:35px;height:35px;font-size:22px;background-color:#ffffff;}
+.login-input input.list-input{float:center;line-height:35px;height:35px;width:100%;border:#ebebeb 1px solid;text-indent:5px;background-color:#ffffff;}
+.login-button{width:70%;margin:28px auto 0px auto;line-height:58px;font-size:14px;border:#ebebeb 1px solid;text-align:center;background-color:#ffffff;}
+.login-button a{display:block;background-color:#ffffff;}
 </style>
 <script>
 var _hmt = _hmt || [];
@@ -50,31 +65,107 @@ var _hmt = _hmt || [];
 </script>
 <body>
     <div class="app">
-        <video id="player" src="demo.mp4" preload autoplay webkit-playsinline='true' playsinline='true' x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true' controlslist="nodownload" poster="bg.jpg"></video>
+        <video id="player" preload autoplay webkit-playsinline='true' playsinline='true' x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true' controlslist="nodownload" poster="./img/bg.jpg"></video>
     </div>
-    
-    <span style="position:absolute;top:5px;left:10px;color:#fff;font-size:10px;">右/上滑切换下一个</span>
-    <span style="position:absolute;top:20px;left:10px;color:#fff;font-size:10px;">单击播放/暂停</span>
-    <span style="position:absolute;top:35px;left:10px;color:#fff;font-size:10px;">双击进入全屏</span>
+
+    <span style="position:absolute;top:5px;left:10px;color:#fff;font-size:10px;">点击按钮选择【连续】/【循环】模式</span>
+    <span style="position:absolute;top:20px;left:10px;color:#fff;font-size:10px;">右滑/上滑切换下一个</span>
+    <span style="position:absolute;top:35px;left:10px;color:#fff;font-size:10px;">点击来源切换数据源</span>
+    <span style="position:absolute;top:50px;left:10px;color:#fff;font-size:10px;">点击爱心按钮收藏</span>
+    <span style="position:absolute;top:65px;left:10px;color:#fff;font-size:10px;">单击播放/暂停</span>
+    <span style="position:absolute;top:80px;left:10px;color:#fff;font-size:10px;">双击进入全屏</span>
 
     <div id="buttons" style="position:absolute;bottom:150px;right:10px;">
         <button id="bth" style="border-radius:20px;width:32px;height:32px;">循环</button>
+        <br><br><br>
+        <button id="yuan" style="border-radius:20px;width:32px;height:32px;">源1</button>
+        <br><br><br>
+        <button style="border-radius:20px;width:48px;height:32px;" onclick="players();">PASS</button>
+        <br><br><br>
+        <img style="border-radius:10px;width:32px;height:32px;" src="./img/love.png" title="点击添加收藏" id="love"/>
     </div>
 
-    <span style="position:absolute;top:5px;right:5px;color:#fff;font-size:10px;">当前视频库:[<span style="color: #FF4040;">*****</span>]</span>
-    <span style="position:absolute;top:25px;right:10px;color:#fff;font-size:10px;">URL-ID:[<span style="color: #4682B4;">*****</span>]</span>
+    <span style="position:absolute;top:5px;right:10px;color:#4682B4;;font-size:12px;" id="userid">@Jmw`Power</span>
 
-    <span style="position:absolute;bottom:10px;left:10px;color:#fff;font-size:9px;">本程序仅作研究学习演示，视频采集自网络<br>原作者拍摄创作不易，请勿下载传播<br><strong style="color:red;font-size:8px;">如您想要删除某个视频链接，请携带URL-ID联系我们</strong></span>
+    <span style="position:absolute;bottom:10px;left:10px;color:#fff;font-size:9px;">本程序仅作研究学习演示，数据采集自网络<br>原作者拍摄创作不易，请勿下载传播</span>
 </body>
-<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+<div class="login" id="dlym" style="height:80vh;width: 85vw;">
+    <div class="login-title">ID*组·收藏登入<span><a class="close-login" onclick="$('#dlym').hide();">关闭</a></span></div>
+    <div class="login-input-content">
+        <div style="width:100%;height:1px;border-top: solid #ACC0D8 1px;"></div><br>
+        <div class="login-input">
+            <label>ID*组·账号：</label>
+            <input type="text" placeholder="ID*组·账号（建议使用易记的纯数字）"  id="username" class="list-input"/>
+        </div>
+        <br><div style="width:100%;height:1px;border-top: solid #ACC0D8 1px;"></div>
+        <strong>温馨提示：</strong><br>
+        <span>1.本收藏功能为开放性ID组账号收藏体验，ID*组·账号不设密码，如已存在同ID组账号，即会在原ID组账号上添加收藏数据，您可以公开您的ID组账号给您志同道合的好友们；添加的收藏数据暂不支持取消，不支持删除ID组账号，请您谨慎操作！</span><br>
+        <span>2.点击来源显示按钮切换到收藏源即可浏览当前ID组账号收藏的数据。</span>
+    </div>
+    <div class="login-button"><a id="login">登录账号</a></div>
+</div>
+<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="./js/jquery.cookie.min.js"></script>
 <script>
 $(document).ready(function(){
-    var auto = false;
-    var player = document.getElementById("player");
+    auto = false;
+    gi = 1;
+    url = "./get/get1.php";
+    vdurl = "./demo.mp4";
+    player = document.getElementById("player");
+    players();
+    alert('页面加载完毕，点击屏幕开始播放！');
+    
+    var user = $.cookie('user');
+    if (user != null) {
+        $("#userid").html('@'+user);
+    } else {
+        $("#userid").html('@Jmw-Power');
+    }
  
     $("#bth").on("click", function(){
         auto = !auto;
         this.innerText = (auto ? '连播' : '循环');
+    });
+
+    $("#love").on("click", function(){
+    	user = $.cookie('user');
+	    if (user == null) {
+	    	$('#dlym').show();
+		} else {
+			$.post("post.php",{userid:user,datastr:vdurl},function(datat,status){
+				dataobj = JSON.parse(datat);
+				if (dataobj.status == "YES") {
+					$("#love").attr('src','./img/loves.png'); 
+					console.log(dataobj.message);
+				}else{
+					console.log(dataobj.message);
+				}
+			});
+		}
+    });
+
+    $("#yuan").on("click", function(){
+    	if (gi < 8) {
+    		gi = gi + 1;
+    		this.innerText = "源" + gi;
+    		url = "./get/get" + gi + ".php";
+    	} else if (gi = 8) {
+			var user = $.cookie('user');
+			if (user != null) {
+				gi = 0;
+				this.innerText = "收藏";
+                $("#userid").html('@'+user);
+				url = ("./get/get.php?user=" + user);
+			} else {
+				gi = 1;
+	    		this.innerText = "源" + gi;
+                $("#userid").html('@Jmw-Power');
+	    		url = "./get/get" + gi + ".php";
+			}
+    	}
+        console.log(url);
     });
 
     player.addEventListener('ended', function () {
@@ -86,7 +177,7 @@ $(document).ready(function(){
         }
     }, false);
 
-    var touchtime = new Date().getTime();
+    touchtime = new Date().getTime();
     $("#player").on("click", function(){
         if( new Date().getTime() - touchtime < 500 ){
             console.log("dblclick");
@@ -104,10 +195,23 @@ $(document).ready(function(){
 });
 
 function players() {
-    $.get("get.php",function(data,status){
+    $.get(url,function(data,status){
         if (status==status) {
             console.log("成功获取数据！");
             player.src = data;
+            vdurl = data;
+            console.log(data);
+            if (gi==0) {
+            	$("#love").attr('src','./img/loves.png');
+            } else {
+            	$("#love").attr('src','./img/love.png');
+            }
+			$.ajax({url: data,type: 'GET',complete: function(response) {
+				if(response.status != 200) {
+					console.log(response.status);
+					players();
+				}
+			}});
             player.play();
         } else {
             console.log("失败，重新发起请求！");
@@ -183,5 +287,27 @@ document.addEventListener("touchend", function(e) {
             break;
     }
 }, false);
+</script>
+<script type="text/javascript">
+$("#login").on("click", function(){
+	var usernames = document.getElementById('username').value;
+    if (usernames.replace(/(^\s*)|(\s*$)/g, "") == "") {  //----判断是否为空或者空格---
+        alert("请注意，账号内容不能为空！");
+        username.focus();
+        return;//------如果为空，阻止函数继续往下执行----
+    } else {
+	    $.post("login.php",{username:usernames},function(datalogin,status){
+	        	objlogin = JSON.parse(datalogin);
+	        	if (objlogin.status == "YES") {
+	        		$.cookie('user', usernames);
+                    $("#userid").html('@'+usernames);
+	        		$('#dlym').hide();
+			        alert(objlogin.message);
+	        	}else{
+	        		alert(objlogin.message);
+	        	} 
+	        });
+    }
+});
 </script>
 </html>
