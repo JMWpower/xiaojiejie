@@ -129,11 +129,11 @@ $(document).ready(function(){
     });
 
     $("#yuan").on("click", function(){
-    	if (gi < 8) {
+    	if (gi < 1) {
     		gi = gi + 1;
     		this.innerText = "当前数据源【00" + gi + "】";
     		url = "./get/get" + gi + ".php";
-    	} else if (gi = 8) {
+    	} else if (gi = 1) {
 			var user = $.cookie('user');
 			if (user != null) {
 				gi = 0;
