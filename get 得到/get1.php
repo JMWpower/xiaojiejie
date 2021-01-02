@@ -1,8 +1,7 @@
 <?php
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
 header("Access-Control-Allow-Origin: *");
-$user = "tuijian";
-$filename='../user/'.$user.'.json';
+$filename='yuan.json';
 if(file_exists($filename)){
     $json_string = file_get_contents($filename);
     $data = json_decode($json_string, true);
