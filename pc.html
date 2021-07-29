@@ -1,26 +1,17 @@
-<!--
-    By:JmwPower
-    Copy:https://github.com/JMWpower/xiaojiejie
-    Copy:https://gitee.com/JmwPower/xiaojiejie
-    温馨提示：本页面仅供学习参考，请勿分享传播商用，请您在下载后的24H进行删除！本项目开源，请勿在源码分享站点付费下载。
-    以上信息使用时请保留，谢谢！Thanks♪(･ω･)ﾉ
--->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="google" value="notranslate">
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-<meta name=author content="Jmw-Power`top|JmwPower">
-<meta name=description content="Jmw-Power`top|小姐姐 优质短视频播放小站，仿短视频App播放操作模式，网页版无需安装APP，即开即用，可登录收藏你所喜欢的小姐姐视频！温馨提示：本页面仅供学习参考，请勿分享传播商用，请您在下载后的24H进行删除！本项目开源，请勿在源码分享站点付费下载。">
-<meta name=keywords content="xiaojiejie, xjj, 小姐姐, 抖音, 快手, 福利, Jmw-Power`top, JmwPower">
 <title>JMW-|-小姐姐</title>
 <link rel="stylesheet" type="text/css" href="./css/pc.css">
-<link rel="icon" type="image/x-icon" href="favicon.ico" />
-<link rev="made" href="https://github.com/JMWpower/xiaojiejie">
-<link rev="made" href="https://gitee.com/JmwPower/xiaojiejie">
 <script type="text/javascript">
-    if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {window.location.href = "index.html";}
+   if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        window.location.href = "index.html";
+    }else{
+    //    window.location.href = "pc.html";
+    }
 </script>
 <script>
 var _hmt = _hmt || [];
@@ -67,7 +58,7 @@ var _hmt = _hmt || [];
 				<img src="./img/love.png" id="love" style="background-color: #0E0F1A;border-radius:10px;width:38px;height:38px;" title="点击喜欢按钮收藏">
 			</div>
 			<div style="padding-top: 15px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
-				<button id="yuan">当前数据源【精品】</button>
+				<button id="yuan">当前数据源【001】</button>
 			</div>
 		    <div style="padding-top: 15px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
 		    	<span style="color:#fff;">扫描下方二维码.使用手机播放</span><br>
@@ -97,15 +88,12 @@ var _hmt = _hmt || [];
     <div class="login-button"><a id="login">登录账号</a></div>
 </div>
 <div class="login-bg"></div>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.1.1/layer.min.js"></script>
+<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="./js/jquery.cookie.min.js"></script>
 <script>
 $(document).ready(function(){
     auto = false;
     gi = 1;
-    gi = 1;//初始化GET链接序号
-    gi_max = 3;//最大GET链接序号
     url = "./get/get1.php";
     vdurl = "./demo.mp4";
     player = document.getElementById("player");
@@ -135,41 +123,27 @@ $(document).ready(function(){
 		}
     });
 
-    $("#userid").on("click", function(){
-    	user = $.cookie('user');
-	    if (user == null) {
-	    	$('#dlym').show();
-	    	$('.login-bg').show();
-		} else {
-			$.removeCookie('user'); //删除cookie
-			$("#userid").html("@Jmw-Power");
-			$("#username").val("");
-		}
-    });
-
     $('.close-login').click(function(){
         $('#dlym').hide();
         $('.login-bg').hide();
     });
 
     $("#yuan").on("click", function(){
-    	if (gi < gi_max) {
+    	if (gi < 1) {
     		gi = gi + 1;
-    		this.innerText = "当前源【00" + gi + "】";
-    		if (gi>9) {this.innerText = "当前源【0" + gi + "】";}//大于9，缺省0
-    		if (gi==2) {this.innerText = "当前源【JSON】";}
+    		this.innerText = "当前数据源【00" + gi + "】";
     		url = "./get/get" + gi + ".php";
-    	} else if (gi = gi_max) {
+    	} else if (gi = 1) {
 			var user = $.cookie('user');
 			if (user != null) {
 				gi = 0;
 				$("#userid").html('@'+user);
-				this.innerText = "当前源【收藏】";
+				this.innerText = "当前数据源【收藏】";
 				url = ("./get/get.php?user=" + user);
 			} else {
 				$("#userid").html('@Jmw-Power');
 				gi = 1;
-	    		this.innerText = "当前源【精品】";
+	    		this.innerText = "当前数据源【00" + gi + "】";
 	    		url = "./get/get" + gi + ".php";
 			}
     	}
@@ -206,27 +180,21 @@ function players() {
     $.get(url,function(data,status){
         if (status==status) {
             console.log("成功获取数据！");
+            player.src = data;
             vdurl = data;
             console.log(data);
-            if(vdurl.indexOf("M3U8") >= 0 || vdurl.indexOf("m3u8") >= 0) {
-                players();
-            }else{
-                player.src = data;
-                player.play();
-            }
+            player.play();
             if (gi==0) {
             	$("#love").attr('src','./img/loves.png');
             } else {
             	$("#love").attr('src','./img/love.png');
             }
-            if (gi != 8 || pds != 999) {
-    			$.ajax({type: 'GET',url: data,complete: function(response) {
-    				if(response.status != 200) {
-    					console.log(response.status);
-    					players();
-    				}
-    			}});
-            }
+			$.ajax({url: data,type: 'GET',complete: function(response) {
+				if(response.status != 200) {
+					console.log(response.status);
+					players();
+				}
+			}});
         } else {
             console.log("失败，重新发起请求！");
             players();
