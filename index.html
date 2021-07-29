@@ -1,313 +1,264 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<link rel="icon" type="image/x-icon" href="favicon.ico" />
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-<title>JMW-|-小姐姐</title>
-<script type="text/javascript">
-    if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-    //    window.location.href = "index.html";
-    }else{
-        window.location.href = "pc.html";
-    }
-</script>
-<style type="text/css">
-*{
-    margin:0px; 
-    padding:0px;
-    touch-action: pan-y;
-    text-align: center;
-}
-.app{
-    width: 100%; 
-    height:100%; 
-    position: absolute; 
-    top:0px; 
-    right:0px; 
-    bottom: 0px; 
-    left:0px; 
-    overflow: hidden;
-    background-color: #ffffff;
-}
-
-#player{
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    object-position: center center;
-    z-index: 100;
-}
-
-/* login */
-.login-header{width:100%;text-align:center;height:30px;font-size:24px;line-height:30px;background-color:#ffffff;}
-.login{position:fixed;border:#ebebeb solid 1px;top:10%;left:5%;right:5%;display:none;background:#ffffff;box-shadow:0px 0px 20px #ddd;z-index:9999;}
-.login-title{width:100%;margin:10px 0px 0px 0px;text-align:center;line-height:40px;height:40px;font-size:18px;position:relative;background-color:#ffffff;}
-.login-title span{position:absolute;font-size:12px;right:-20px;top:-30px;border:#ebebeb solid 1px;width:40px;height:40px;border-radius:20px;background-color:#ffffff;}
-.login-title span a{display:block;border-radius:20px;font-size:16px;background-color:#ffffff;}
-.login strong{float:left;display:block;font-size:16px;background-color:#ffffff;}
-.login span{display:block;font-size:14px;background-color:#ffffff;text-align:left;}
-.login-input-content{margin-top:20px;background-color:#ffffff;}
-.login-input {overflow:hidden;margin:0px 0px 20px 0px;background-color:#ffffff;}
-.login-input label{float:left;width:100%;padding-right:10px;text-align:left;line-height:35px;height:35px;font-size:22px;background-color:#ffffff;}
-.login-input input.list-input{float:center;line-height:35px;height:35px;width:100%;border:#ebebeb 1px solid;text-indent:5px;background-color:#ffffff;}
-.login-button{width:70%;margin:28px auto 0px auto;line-height:58px;font-size:14px;border:#ebebeb 1px solid;text-align:center;background-color:#ffffff;}
-.login-button a{display:block;background-color:#ffffff;}
-</style>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?86194243b3d0dc98474adb8d6755d003";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<body>
-    <div class="app">
-        <video id="player" preload autoplay webkit-playsinline='true' playsinline='true' x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true' controlslist="nodownload" poster="./img/bg.jpg"></video>
-    </div>
-
-    <span style="position:absolute;top:5px;left:10px;color:#fff;font-size:10px;">点击按钮选择【连续】/【循环】模式</span>
-    <span style="position:absolute;top:20px;left:10px;color:#fff;font-size:10px;">右滑/上滑切换下一个</span>
-    <span style="position:absolute;top:35px;left:10px;color:#fff;font-size:10px;">点击来源切换数据源</span>
-    <span style="position:absolute;top:50px;left:10px;color:#fff;font-size:10px;">点击爱心按钮收藏</span>
-    <span style="position:absolute;top:65px;left:10px;color:#fff;font-size:10px;">单击播放/暂停</span>
-    <span style="position:absolute;top:80px;left:10px;color:#fff;font-size:10px;">双击进入全屏</span>
-
-    <div id="buttons" style="position:absolute;bottom:150px;right:10px;">
-        <button id="bth" style="border-radius:20px;width:32px;height:32px;">循环</button>
-        <br><br><br>
-        <button id="yuan" style="border-radius:20px;width:32px;height:32px;">源1</button>
-        <br><br><br>
-        <button style="border-radius:20px;width:48px;height:32px;" onclick="players();">PASS</button>
-        <br><br><br>
-        <img style="border-radius:10px;width:32px;height:32px;" src="./img/love.png" title="点击添加收藏" id="love"/>
-    </div>
-
-    <span style="position:absolute;top:5px;right:10px;color:#4682B4;;font-size:12px;" id="userid">@Jmw`Power</span>
-
-    <span style="position:absolute;bottom:10px;left:10px;color:#fff;font-size:9px;">本程序仅作研究学习演示，数据采集自网络<br>原作者拍摄创作不易，请勿下载传播</span>
-</body>
-
-<div class="login" id="dlym" style="height:80vh;width: 85vw;">
-    <div class="login-title">ID*组·收藏登入<span><a class="close-login" onclick="$('#dlym').hide();">关闭</a></span></div>
-    <div class="login-input-content">
-        <div style="width:100%;height:1px;border-top: solid #ACC0D8 1px;"></div><br>
-        <div class="login-input">
-            <label>ID*组·账号：</label>
-            <input type="text" placeholder="ID*组·账号（建议使用易记的纯数字）"  id="username" class="list-input"/>
-        </div>
-        <br><div style="width:100%;height:1px;border-top: solid #ACC0D8 1px;"></div>
-        <strong>温馨提示：</strong><br>
-        <span>1.本收藏功能为开放性ID组账号收藏体验，ID*组·账号不设密码，如已存在同ID组账号，即会在原ID组账号上添加收藏数据，您可以公开您的ID组账号给您志同道合的好友们；添加的收藏数据暂不支持取消，不支持删除ID组账号，请您谨慎操作！</span><br>
-        <span>2.点击来源显示按钮切换到收藏源即可浏览当前ID组账号收藏的数据。</span>
-    </div>
-    <div class="login-button"><a id="login">登录账号</a></div>
-</div>
-<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="./js/jquery.cookie.min.js"></script>
-<script>
-$(document).ready(function(){
-    auto = false;
-    gi = 1;
-    url = "./get/get1.php";
-    vdurl = "./demo.mp4";
-    player = document.getElementById("player");
-    players();
-    alert('页面加载完毕，点击屏幕开始播放！');
-    
-    var user = $.cookie('user');
-    if (user != null) {
-        $("#userid").html('@'+user);
-    } else {
-        $("#userid").html('@Jmw-Power');
-    }
- 
-    $("#bth").on("click", function(){
-        auto = !auto;
-        this.innerText = (auto ? '连播' : '循环');
-    });
-
-    $("#love").on("click", function(){
-    	user = $.cookie('user');
-	    if (user == null) {
-	    	$('#dlym').show();
-		} else {
-			$.post("post.php",{userid:user,datastr:vdurl},function(datat,status){
-				dataobj = JSON.parse(datat);
-				if (dataobj.status == "YES") {
-					$("#love").attr('src','./img/loves.png'); 
-					console.log(dataobj.message);
-				}else{
-					console.log(dataobj.message);
-				}
-			});
-		}
-    });
-
-    $("#yuan").on("click", function(){
-    	if (gi < 1) {
-    		gi = gi + 1;
-    		this.innerText = "源" + gi;
-    		url = "./get/get" + gi + ".php";
-    	} else if (gi = 1) {
-			var user = $.cookie('user');
-			if (user != null) {
-				gi = 0;
-				this.innerText = "收藏";
-                $("#userid").html('@'+user);
-				url = ("./get/get.php?user=" + user);
-			} else {
-				gi = 1;
-	    		this.innerText = "源" + gi;
-                $("#userid").html('@Jmw-Power');
-	    		url = "./get/get" + gi + ".php";
+<html>
+	<head>
+		<meta charSet="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta http-equiv="Cache-Control" content="no-transform" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<meta name="referrer" content="never">
+		<meta name="renderer" content="webkit" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+		<title>
+			随机小姐姐视频
+		</title>
+		<style>
+			*{border:0;margin:0;padding:0;outline:none;box-sizing:border-box}body{background:#000;width:100vw;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center}#main{height:calc(100vh-60px);display:flex;justify-content:center;align-items:center}#player,#player_pre{width:auto;height:100%;top:0;position:absolute}#buttons{height:8%;padding:10px;position:absolute;right:unset;bottom:10px}@media
+			screen and (orientation:landscape){#buttons{height:8%;padding:10px;position:absolute;right:unset;bottom:10px}#switch,#next{background:#FFF;background:linear-gradient(to
+			bottom,#FF2,#FB0);color:#AF2E08;padding:0px 20px;font-size:16px;font-weight:bold;height:40px;margin:0px
+			5px;border-radius:20px}}@media screen and (orientation:portrait){#buttons{height:8%;padding:10px;position:absolute;right:10px;bottom:200px}#switch,#next{background:#FFF;background:linear-gradient(to
+			bottom,#f3f3de,#85b4e6);color:#ff3a00;padding:0px 5px;font-size:16px;font-weight:bold;height:40px;margin:0px
+			5px;border-radius:20px;margin-bottom:50px;display:block}}
+		</style>
+	</head>
+	<body>
+		<section id="main">
+		</section>
+		<section id="buttons">
+			<button id="switch">
+				连播
+			</button>
+			<button id="next">
+				PASS
+			</button>
+		</section>
+		<script>
+			function getQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) {
+					return unescape(r[2])
+				};
+				return null
 			}
-    	}
-        console.log(url);
-    });
-
-    player.addEventListener('ended', function () {
-        console.log("播放结束");
-        if (auto == false) {
-            player.play();
-        } else {
-            players();
-        }
-    }, false);
-
-    touchtime = new Date().getTime();
-    $("#player").on("click", function(){
-        if( new Date().getTime() - touchtime < 500 ){
-            console.log("dblclick");
-            FullScreen();
-        }else{
-            touchtime = new Date().getTime();
-            console.log("click");
-            if (player.paused) {
-                player.play();
-            } else {
-                player.pause();
-            }
-        }
-    });
-});
-
-function players() {
-    $.get(url,function(data,status){
-        if (status==status) {
-            console.log("成功获取数据！");
-            player.src = data;
-            vdurl = data;
-            console.log(data);
-            if (gi==0) {
-            	$("#love").attr('src','./img/loves.png');
-            } else {
-            	$("#love").attr('src','./img/love.png');
-            }
-			$.ajax({url: data,type: 'GET',complete: function(response) {
-				if(response.status != 200) {
-					console.log(response.status);
-					players();
+			function get(id) {
+				return document.getElementById(id)
+			};
+			function createEle(type, id) {
+				var ele = document.createElement(type);
+				ele.id = id;
+				ele.setAttribute("preload", "");
+				ele.setAttribute("autoplay", "");
+				ele.setAttribute("webkit-playsinline", "true");
+				ele.setAttribute("playsinline", "true");
+				ele.setAttribute("x5-video-player-fullscreen", "true");
+				ele.setAttribute("x-webkit-airplay", "true");
+				ele.setAttribute("x5-video-ignore-metadata", "true");
+				ele.setAttribute("x5-video-player-type", "h5");
+				ele.setAttribute("controlslist", "");
+				ele.setAttribute("preload", "nodownload");
+				ele.setAttribute("muted", "");
+				ele.style.display = "none";
+				get("main").append(ele);
+				return ele
+			}
+			function bind(element, event, callback) {
+				if (Array.isArray(element)) {
+					for (var a of element) {
+						a.addEventListener(event, callback)
+					}
+				} else {
+					return element.addEventListener(event, callback)
 				}
-			}});
-            player.play();
-        } else {
-            console.log("失败，重新发起请求！");
-            players();
-        }
-    });
-}
+			}; (function(window, document) {
+				if (top != self && top.location.host != "random.arron.workers.dev") {
+					window.top.location.replace(self.location.href)
+				};
+				var playlist = getQueryString("playlist")||'//random.arrontg.cf/v/ks';
+				var type = getQueryString("type")||'video';
+				var player = createEle(type, "player");
+				var player_pre = createEle(type, "player_pre");
+				window.random = function() {
+					let player_ele;
+					if (player.style.display === "none") {
+						player.style.display = "";
+						player_pre.style.display = "none";
+						player_pre.src = playlist + "?_t=" + Math.random();
+						if (player.tagName === "VIDEO") {
+							player_pre.pause();
+							if (player.readyState) {
+								player.play()
+							}
+						}
+						player_ele = player
+					} else if (player_pre.style.display === "none") {
+						player_pre.style.display = "";
+						player.style.display = "none";
+						player.src = playlist + "?_t=" + Math.random();
+						if (player_pre.tagName === "VIDEO") {
+							player.pause();
+							if (player_pre.readyState) {
+								player_pre.play()
+							}
+						}
+						player_ele = player_pre
+					}
+					if (player.tagName === "IMG") {
+						clearInterval(window.timer);
+						if (auto) {
+							let t = second;
+							window.timer = setInterval(function() {
+								if (player_ele.style.display != "none") {
+									if (t <= 0) {
+										clearInterval(window.timer);
+										next_ele.textContent = "PASS";
+										random();
+										return
+									}
+									next_ele.textContent = next_ele.textContent === "PASS" ? next_ele.textContent + "(" + t + ")": next_ele.textContent.replace(/\d+/, t);
+									t--
+								}
+							},
+							1000)
+						}
+					}
+				};
+				var auto = true;
+				window.second = 5;
+				var next_ele = get("next");
+				var switch_ele = get("switch");
+				bind([player, player_pre], "click",
+				function() {
+					if (this.paused) {
+						this.play()
+					} else {
+						this.pause()
+					}
+				});
+				bind([player, player_pre], "error",
+				function() {
+					this.src = playlist + "?_t=" + Math.random()
+				});
+				bind([player, player_pre], "ended",
+				function() {
+					if (auto) {
+						random()
+					}
+				});
+				bind([player, player_pre], "canplay",
+				function() {
+					if (this.tagName === "VIDEO" && this.style.display != "none" && this.readyState) {
+						this.play()
+					}
+				});
+				bind(next_ele, "click",
+				function() {
+					if (window.timer) {
+						clearInterval(window.timer);
+						next_ele.textContent = "PASS"
+					}
+					random()
+				});
+				bind(switch_ele, "click",
+				function() {
+					if (window.timer) {
+						clearInterval(window.timer);
+						next_ele.textContent = "PASS"
+					}
+					auto = !auto;
+					this.innerText = auto ? "连播": "循环";
+					player.loop = !auto;
+					player_pre.loop = !auto
+				});
+				var startx, starty;
+				function getAngle(angx, angy) {
+					return Math.atan2(angy, angx) * 180 / Math.PI
+				};
+				function getDirection(startx, starty, endx, endy) {
+					var angx = endx - startx;
+					var angy = endy - starty;
+					var result = 0;
+					if (Math.abs(angx) < 2 && Math.abs(angy) < 2) {
+						return result
+					}
+					var angle = getAngle(angx, angy);
+					if (angle >= -135 && angle <= -45) {
+						result = 1
+					} else if (angle > 45 && angle < 135) {
+						result = 2
+					} else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+						result = 3
+					} else if (angle >= -45 && angle <= 45) {
+						result = 4
+					}
+					return result
+				}
+				bind(document, "touchstart",
+				function(event) {
+					startx = event.touches[0].pageX;
+					starty = event.touches[0].pageY
+				},
+				false);
+				bind(document, "touchend",
+				function(event) {
+					var endx, endy;
+					endx = event.changedTouches[0].pageX;
+					endy = event.changedTouches[0].pageY;
+					var direction = getDirection(startx, starty, endx, endy);
+					switch (direction) {
+					case 1:
+						console.log("向上！");
+						random();
+						break;
+					case 3:
+						console.log("向左！");
+						random();
+						break
+					}
+				},
+				false);
+				bind(document, "keydown",
+				function(event) {
+					console.log("trigger " + event.code + " keyCode=" + event.keyCode);
+					if (event.keyCode == 27) {
+						event.preventDefault();
+						player.pause();
+						player_pre.pause()
+					} else if (event.keyCode == 67 || event.keyCode == 83) {
+						event.preventDefault();
+						document.getElementById("switch").click()
+					} else if (event.keyCode == 32) {
+						event.preventDefault();
+						if (player.style.display != "none") {
+							console.log("trigger Spance */ play");
+							if (player.paused) {
+								player.play()
+							} else {
+								player.pause()
+							}
+						} else if (player_pre.style.display != "none") {
+							if (player_pre.paused) {
+								player_pre.play()
+							} else {
+								player_pre.pause()
+							}
+						}
+					} else if (event.keyCode == 39 || event.keyCode == 78 || event.keyCode == 80) {
+						event.preventDefault();
+						document.getElementById("next").click()
+					} else if (event.keyCode == 38) {
+						event.preventDefault();
+						player.volume = player.volume + 0.1 > 1 ? 1 : player.volume + 0.1;
+						player_pre.volume = player.volume + 0.1 > 1 ? 1 : player.volume + 0.1
+					} else if (event.keyCode == 40) {
+						event.preventDefault();
+						player.volume = player.volume - 0.1 < 0 ? 0 : player.volume - 0.1;
+						player_pre.volume = player.volume - 0.1 < 0 ? 0 : player.volume - 0.1
+					}
+				})
+			})(window, document);
+			random();
+			random();
+		</script>
+	</body>
 
-//进入全屏
-function FullScreen() {
-    if (player .requestFullscreen) {
-        player .requestFullscreen();
-        player.play();
-    } else if (player .mozRequestFullScreen) {
-        player .mozRequestFullScreen();
-        player.play();
-    } else if (player .webkitRequestFullScreen) {
-        player .webkitRequestFullScreen();
-        player.play();
-    }
-}
-</script>
-<script>
-var startx, starty;
-//获得角度
-function getAngle(angx, angy) {
-    return Math.atan2(angy, angx) * 180 / Math.PI;
-};
-
-//根据起点终点返回方向 1向上 2向下 3向左 4向右 0未滑动
-function getDirection(startx, starty, endx, endy) {
-    var angx = endx - startx;
-    var angy = endy - starty;
-    var result = 0;
-
-    //如果滑动距离太短
-    if (Math.abs(angx) < 2 && Math.abs(angy) < 2) {
-        return result;
-    }
-
-    var angle = getAngle(angx, angy);
-    if (angle >= -135 && angle <= -45) {
-        result = 1;
-    } else if (angle > 45 && angle < 135) {
-        result = 2;
-    } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
-        result = 3;
-    } else if (angle >= -45 && angle <= 45) {
-        result = 4;
-    }
-
-    return result;
-}
-//手指接触屏幕
-document.addEventListener("touchstart", function(e){
-    startx = e.touches[0].pageX;
-    starty = e.touches[0].pageY;
-}, false);
-//手指离开屏幕
-document.addEventListener("touchend", function(e) {
-    var endx, endy;
-    endx = e.changedTouches[0].pageX;
-    endy = e.changedTouches[0].pageY;
-    var direction = getDirection(startx, starty, endx, endy);
-    switch (direction) {
-        case 1:
-            console.log("向上！");
-            players();
-            break;
-        case 3:
-            console.log("向左！");
-            players();
-            break;
-    }
-}, false);
-</script>
-<script type="text/javascript">
-$("#login").on("click", function(){
-	var usernames = document.getElementById('username').value;
-    if (usernames.replace(/(^\s*)|(\s*$)/g, "") == "") {  //----判断是否为空或者空格---
-        alert("请注意，账号内容不能为空！");
-        username.focus();
-        return;//------如果为空，阻止函数继续往下执行----
-    } else {
-	    $.post("login.php",{username:usernames},function(datalogin,status){
-	        	objlogin = JSON.parse(datalogin);
-	        	if (objlogin.status == "YES") {
-	        		$.cookie('user', usernames);
-                    $("#userid").html('@'+usernames);
-	        		$('#dlym').hide();
-			        alert(objlogin.message);
-	        	}else{
-	        		alert(objlogin.message);
-	        	} 
-	        });
-    }
-});
-</script>
 </html>
