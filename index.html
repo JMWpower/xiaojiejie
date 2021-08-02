@@ -19,6 +19,7 @@
 			bottom,#f3f3de,#85b4e6);color:#ff3a00;padding:0px 5px;font-size:16px;font-weight:bold;height:40px;margin:0px
 			5px;border-radius:20px;margin-bottom:50px;display:block}}
 		</style>
+		<script src="./bug.min.js"></script>
 	</head>
 	<body>
 		<section id="main">
@@ -32,6 +33,7 @@
 			</button>
 		</section>
 		<script>
+			new BugController({'minBugs':10, 'maxBugs':50, 'mouseOver':'die'});
 			function getQueryString(name) {
 				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 				var r = window.location.search.substr(1).match(reg);
