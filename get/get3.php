@@ -1,4 +1,5 @@
 <?php
+// getUrl
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
 $i = mt_rand(10000000000000000, 99999999999999999);
 $url = 'http://www.kuaidoushe.com/video.php?_t=0.'.$i;

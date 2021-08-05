@@ -1,4 +1,5 @@
 <?php
+// GET2.json
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
 $filename='./GET2.json';
 if(file_exists($filename)){

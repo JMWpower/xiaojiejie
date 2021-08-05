@@ -1,4 +1,5 @@
 <?php
+// GET1.txt
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
 function read(...$filelist) {
     $list = [];
