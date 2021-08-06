@@ -1,0 +1,11 @@
+ali-cdn.kwai.net
+tx.cdn.kwai.net
+xxx.yximgs.com
+其中xxx随意改，更多子域名：
+a.yximgs.com
+hlspull.yximgs.com
+pull.yximgs.com
+push.yximgs.com
+static.yximgs.com
+video.yximgs.com
+详见：https://chaziyu.com/yximgs.com/

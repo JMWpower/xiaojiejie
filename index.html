@@ -1,10 +1,3 @@
-<!--
-	By:JmwPower
-	Copy:https://github.com/JMWpower/xiaojiejie
-	Copy:https://gitee.com/JmwPower/xiaojiejie
-	温馨提示：本页面仅供学习参考，请勿分享传播商用，请您在下载后的24H进行删除！本项目开源，请勿在源码分享站点付费下载。
-	以上信息使用时请保留，谢谢！Thanks♪(･ω･)ﾉ
--->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -12,8 +5,8 @@
 <meta name="google" value="notranslate">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <meta name=author content="Jmw-Power`top|JmwPower">
-<meta name=description content="Jmw-Power`top|小姐姐 优质短视频播放小站，仿短视频App播放操作模式，网页版无需安装APP，即开即用，可登录收藏你所喜欢的小姐姐视频！温馨提示：本页面仅供学习参考，请勿分享传播商用，请您在下载后的24H进行删除！本项目开源，请勿在源码分享站点付费下载。">
-<meta name=keywords content="xiaojiejie, xjj, 小姐姐, 抖音, 快手, 福利, Jmw-Power`top, JmwPower">
+<meta name=description content="Jmw-Power`top">
+<meta name=keywords content="xiaojiejiex">
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
 <link rev="made" href="https://github.com/JMWpower/xiaojiejie">
 <link rev="made" href="https://gitee.com/JmwPower/xiaojiejie">
@@ -66,10 +59,8 @@ video::-webkit-media-controls-panel {
 </style>
 <body>
     <div class="app" ontouchmove="return false;">
-        <video id="player" src="demo.mp4" autoplay preload mutedNew webkit-playsinline='true' playsinline='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true' poster="./img/bg.jpg"></video>
-        <!--[autoplay:自动播放] [mutedNew：初始化静音][mutedNew：初始化静音][webkit-playsinline|playsinline:IOS微信浏览器支持小窗内播放]
-        	[preload:预加载][x5-video-player-type:启用同层H5播放器，就是在视频全屏的时候，div可以呈现在视频层上,方便延续触控操作]
-	        [x5-video-player-fullscreen:全屏设置。它又两个属性值，ture和false，true支持全屏播放，false不支持全屏播放][poster:背景图片]-->
+        <video id="player" src="demo.mp4" autoplay preload mutedNew webkit-playsinline='true' playsinline='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true'></video>
+				<!-- poster="./img/bg.jpg" -->
     </div>
 
     <div style="position:absolute;top:30vh;width:100vw;height:auto;text-align:center;z-index:666;" id="logo_img">
@@ -191,24 +182,31 @@ $("#userid").on("click", function(){
 //播放源按钮事件
 $("#yuan").on("click", function(){
 	user = $.cookie('user');
-	if (gi < gi_max) {//小于最大链接序号，持续增加序号值
+	if (gi < gi_max) { //小于最大链接序号，持续增加序号值
 		gi++;
-		this.innerText = "源00" + gi;//置播放源名称
-		if (gi>9) {this.innerText = "源0" + gi;}//大于9，缺省0
-        if (gi==2) {this.innerText = "JSON源";}//自定义名称
-        if (user != null) {//登录状态,添加USER信息鉴权
+		this.innerText = "源00" + gi; // 置播放源名称
+
+		if (gi > 9) {this.innerText = "源0" + gi;} // 大于9，缺省0
+		if (gi == 1) {this.innerText = "TXT源";}// 自定义名称
+		if (gi == 2) {this.innerText = "JSON源";}// 自定义名称
+		if (gi==3) {this.innerText = "当前源【随机】";}
+
+		if (user != null) { // 登录状态,添加USER信息鉴权
 			url = "./get/get" + gi + ".php?user=" + user;
-		} else {//非登录状态
+		} else { // 非登录状态
 			url = "./get/get" + gi + ".php";
 		}
-	} else if (gi = gi_max) {//等于最大链接序号，初始化序号值
+
+	} else if (gi = gi_max) { //等于最大链接序号，初始化序号值
+
 		if (user != null) {//登录状态显示收藏源
-			gi = 0;url = ("./get/get3.php?user=" + user);
+			gi = 0;url = ("./get/getFav.php?user=" + user);
 			this.innerText = "收藏";
-		} else {//非登录状态，显示推荐源
+		} else { //非登录状态，显示推荐源
 			gi = 1;url = "./get/get" + gi + ".php";
-    		this.innerText = "精品源";
+			this.innerText = "TXT源";
 		}
+
 	}
 });
 //PASS切换事件

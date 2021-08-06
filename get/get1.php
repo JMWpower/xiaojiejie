@@ -13,7 +13,7 @@ function read(...$filelist) {
     return $list;
 }
 
-$list = read('GET1.txt');
+$list = read('./source/GET1.txt');
 $url = $list[array_rand($list)];
 
 echo $url;

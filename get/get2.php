@@ -1,7 +1,7 @@
 <?php
 // GET2.json
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
-$filename='./GET2.json';
+$filename='./source/GET2.json';
 if(file_exists($filename)){
     $json_string = file_get_contents($filename);
     $data = json_decode($json_string, true);

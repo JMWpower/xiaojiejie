@@ -1,5 +1,5 @@
-<?php
-// 收藏源
+<?php 
+// 收藏源 
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
 $user = $_GET["user"];
 $filename='../user/'.$user.'.json';
