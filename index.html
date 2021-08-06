@@ -59,8 +59,7 @@ video::-webkit-media-controls-panel {
 </style>
 <body>
     <div class="app" ontouchmove="return false;">
-        <video id="player" src="demo.mp4" autoplay preload mutedNew webkit-playsinline='true' playsinline='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true'></video>
-				<!-- poster="./img/bg.jpg" -->
+        <video id="player" src="demo.mp4" autoplay preload mutedNew webkit-playsinline='true' playsinline='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true' poster="./img/bg.jpg"></video>
     </div>
 
     <div style="position:absolute;top:30vh;width:100vw;height:auto;text-align:center;z-index:666;" id="logo_img">
@@ -189,7 +188,7 @@ $("#yuan").on("click", function(){
 		if (gi > 9) {this.innerText = "源0" + gi;} // 大于9，缺省0
 		if (gi == 1) {this.innerText = "TXT源";}// 自定义名称
 		if (gi == 2) {this.innerText = "JSON源";}// 自定义名称
-		if (gi==3) {this.innerText = "当前源【随机】";}
+		if (gi == 3) {this.innerText = "当前源【随机】";}
 
 		if (user != null) { // 登录状态,添加USER信息鉴权
 			url = "./get/get" + gi + ".php?user=" + user;
